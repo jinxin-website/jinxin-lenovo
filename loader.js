@@ -1,6 +1,6 @@
 // loader.js
-async function loadProducts(targetElementId, category = null, limit = null) {
-    const container = document.getElementById(targetElementId);
+async function loadProducts(containerId, category = null, limit = null) {
+    const container = document.getElementById(containerId);
     if (!container) return;
 
     try {
