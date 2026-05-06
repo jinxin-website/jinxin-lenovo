@@ -1,0 +1,43 @@
+name: 自动更新产品索引
+
+on:
+  push:
+    paths:
+      - 'products-data/*.json'
+      - 'products-data/*.json'
+    branches:
+      - main
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 生成产品索引
+        run: |
+          echo '[' > products-data/products.json
+          first=true
+          for file in products-data/*.json; do
+            filename=$(basename "$file")
+            if [ "$filename" != "products.json" ]; then
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo ',' >> products-data/products.json
+              fi
+              cat "$file" >> products-data/products.json
+            fi
+          done
+          echo ']' >> products-data/products.json
+
+      - name: 提交更新
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add products-data/products.json
+          git commit -m "自动更新产品索引" || exit 0
+          git push
