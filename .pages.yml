@@ -19,9 +19,9 @@ content:
         label: 产品分类
         type: select
         options:
-          - { label: 联想服务器, value: server }
-          - { label: ThinkStation工作站, value: workstation }
-          - { label: 联想品牌机, value: pc }
+          - server: 联想服务器
+          - workstation: ThinkStation工作站
+          - pc: 联想品牌机
         required: true
       - name: price
         label: 参考价格
