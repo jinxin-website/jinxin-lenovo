@@ -11,29 +11,33 @@ content:
         label: 产品URL标识（英文）
         type: string
         required: true
+        description: 例如：sr650、p620，不能有空格和中文
       - name: name
         label: 产品名称
         type: string
         required: true
       - name: category
         label: 产品分类
-        type: string
+        type: select
         options:
-          - server
-          - workstation
-          - pc
+          - { label: 联想服务器, value: server }
+          - { label: ThinkStation工作站, value: workstation }
+          - { label: 联想品牌机, value: pc }
         required: true
       - name: price
         label: 参考价格
         type: string
+        description: 例如：¥12,999起 或 询价
       - name: description
         label: 简短描述
         type: text
+        description: 在卡片上显示的简短介绍
       - name: specs
         label: 详细规格
         type: list
         field:
           type: string
+        description: 点击 + New 添加规格项
       - name: image
         label: 产品图片
         type: image
@@ -41,3 +45,8 @@ content:
         label: 展示在首页
         type: boolean
         default: false
+        description: 开启后，产品会显示在首页对应分类中
+
+media:
+  input: images/products
+  output: /images/products
