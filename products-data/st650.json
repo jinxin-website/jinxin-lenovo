@@ -4,5 +4,6 @@
   "category": "工作站",
   "price": "询价",
   "description": "1125",
-  "specs": "+66"
+  "specs": "+66",
+  "featured": true
 }
