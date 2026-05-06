@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "slug": "sr650",
+    "name": "联想 ThinkSystem SR650",
+    "category": "server",
+    "price": "询价",
+    "description": "2U机架式服务器，支持28核处理器，最高3TB内存",
+    "specs": ["处理器：Intel Xeon 可扩展系列", "内存：最高3TB DDR4"],
+    "image": ""
+  }
+]
