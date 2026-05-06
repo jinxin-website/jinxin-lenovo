@@ -1,0 +1,41 @@
+content:
+  - name: products
+    label: 产品管理
+    path: products-data
+    type: collection
+    filename: '{fields.slug}.json'
+    format: json
+    fields:
+      - name: slug
+        label: 产品URL标识（英文）
+        type: string
+        required: true
+      - name: name
+        label: 产品名称
+        type: string
+        required: true
+      - name: category
+        label: 产品分类
+        type: select
+        options:
+          - { label: 联想服务器, value: server }
+          - { label: ThinkStation工作站, value: workstation }
+          - { label: 联想品牌机, value: pc }
+        required: true
+      - name: price
+        label: 参考价格
+        type: string
+      - name: description
+        label: 简短描述
+        type: text
+      - name: specs
+        label: 详细规格
+        type: list
+        field: { type: string }
+      - name: image
+        label: 产品图片
+        type: image
+
+media:
+  input: images/products
+  output: /images/products
