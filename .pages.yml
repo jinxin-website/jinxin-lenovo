@@ -3,8 +3,9 @@ content:
     label: 产品管理
     path: products-data
     type: collection
-    filename: '{fields.slug}.json'
+    filename: "{slug}.json"
     format: json
+    create: true
     fields:
       - name: slug
         label: 产品URL标识（英文）
@@ -16,11 +17,11 @@ content:
         required: true
       - name: category
         label: 产品分类
-        type: select
+        type: string
         options:
-          - { label: 联想服务器, value: server }
-          - { label: ThinkStation工作站, value: workstation }
-          - { label: 联想品牌机, value: pc }
+          - server
+          - workstation
+          - pc
         required: true
       - name: price
         label: 参考价格
