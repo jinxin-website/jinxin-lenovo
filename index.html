@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>成都金信佳业科技 - 联想服务器工作站品牌机专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: #1f2d3d;
+            background-color: #fff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --lenovo-red: #ED1C24;
+            --lenovo-red-dark: #C8102E;
+            --lenovo-gray: #F4F6F9;
+            --lenovo-dark: #222;
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--lenovo-red);
+        }
+        .logo p {
+            font-size: 0.75rem;
+            color: #5c6b7e;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1f2d3d;
+            transition: 0.2s;
+        }
+        .nav-links li a:hover {
+            color: var(--lenovo-red);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--lenovo-red);
+            margin: 0.8rem auto 0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f9fafc 0%, #eef2f5 100%);
+            padding: 4rem 0;
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #111;
+        }
+        .hero-text .highlight {
+            color: var(--lenovo-red);
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            color: #3a4a5f;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--lenovo-red);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: var(--lenovo-red-dark);
+            transform: translateY(-2px);
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .grid-3, .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--lenovo-red);
+            color: white;
+            border-color: var(--lenovo-red);
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #edf0f5;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+        .product-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        .product-card i {
+            font-size: 2.5rem;
+            color: var(--lenovo-red);
+            margin-bottom: 1rem;
+        }
+        .product-card h3 {
+            margin: 1rem 0;
+        }
+        .product-card p {
+            color: #5c6b7e;
+            font-size: 0.9rem;
+        }
+        .product-price {
+            color: var(--lenovo-red);
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+        .btn-detail {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--lenovo-red);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        /* 加载提示 */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #edf0f5;
+            box-shadow: var(--shadow-sm);
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: var(--lenovo-red);
+            margin-bottom: 1rem;
+        }
+
+        .news-item, .case-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .news-date {
+            color: var(--lenovo-red);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--lenovo-gray);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lenovo-red);
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: inherit;
+        }
+        textarea {
+            min-height: 100px;
+        }
+        button[type="submit"] {
+            background: var(--lenovo-red);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer {
+            background: #1a2632;
+            color: #bbb;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .advantages {
+            background: var(--lenovo-gray);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>成都金信佳业科技</h1>
+            <p>联想战略合作伙伴</p>
+        </div>
+        <button class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#products">产品分类</a></li>
+            <li><a href="#cases">案例展示</a></li>
+            <li><a href="#news">新闻动态</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h2>联想服务器 · 工作站 · 品牌机<br>专业<span class="highlight">解决方案提供商</span></h2>
+                <p>成都金信佳业科技有限公司致力于为川渝政企提供高性能计算、数据存储及终端设备，原厂授权，一站式服务。</p>
+                <a href="#products" class="btn">查看全部产品 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/id/0/500/350" alt="联想数据中心示意" style="border-radius: 20px;">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">关于金信佳业</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">成都金信佳业科技有限公司成立于成都武侯区，核心团队拥有10年以上联想产品服务经验。</p>
+                <p>公司是联想（Lenovo）企业级产品授权经销商，专注于联想服务器、ThinkStation工作站、ThinkCentre/ThinkPad品牌机销售及运维服务。</p>
+            </div>
+            <div class="grid-3" style="margin-top: 3rem;">
+                <div class="card"><i class="fas fa-medal"></i><h3>原厂正品</h3><p>联想官方认证，每一台设备均可查溯源</p></div>
+                <div class="card"><i class="fas fa-headset"></i><h3>专家售后</h3><p>3年原厂保修+本地快速响应团队</p></div>
+                <div class="card"><i class="fas fa-chart-line"></i><h3>性能调优</h3><p>针对AI计算、虚拟化场景深度优化</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心 - 从 CMS 动态加载 -->
+    <section id="products" style="background: #F9FAFE;">
+        <div class="container">
+            <h2 class="section-title">核心产品线</h2>
+            <div class="category-filters" id="filter-buttons">
+                <button class="filter-btn active" data-cat="all">全部</button>
+                <button class="filter-btn" data-cat="server">联想服务器</button>
+                <button class="filter-btn" data-cat="workstation">ThinkStation工作站</button>
+                <button class="filter-btn" data-cat="pc">联想品牌机</button>
+            </div>
+            <div class="grid-3" id="products-grid">
+                <div class="loading">加载产品中...</div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="btn">获取详细报价</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">为什么选择我们</h2>
+            <div class="grid-4" style="grid-template-columns: repeat(auto-fit, minmax(220px,1fr));">
+                <div class="card"><i class="fas fa-truck-fast"></i><h3>极速交付</h3><p>成都现货库存，川内当日达</p></div>
+                <div class="card"><i class="fas fa-shield-alt"></i><h3>全保服务</h3><p>意外损坏、上门更换，无后顾之忧</p></div>
+                <div class="card"><i class="fas fa-chalkboard-user"></i><h3>方案设计</h3><p>免费上门勘测，提供最优配置</p></div>
+                <div class="card"><i class="fas fa-hand-holding-usd"></i><h3>金融分期</h3><p>政企采购支持信用分期/租赁</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cases">
+        <div class="container">
+            <h2 class="section-title">成功案例</h2>
+            <div class="grid-3">
+                <div class="case-item"><i class="fas fa-database" style="font-size: 2rem; color: var(--lenovo-red);"></i><h3>某三甲医院PACS系统升级</h3><p>采用联想SR650服务器+全闪存储，影像调阅提速60%。</p></div>
+                <div class="case-item"><i class="fas fa-microchip"></i><h3>智能制造仿真平台</h3><p>部署30台ThinkStation P620，完成汽车零件虚拟设计。</p></div>
+                <div class="case-item"><i class="fas fa-graduation-cap"></i><h3>高校云计算实验室</h3><p>提供联想服务器+工作站集群，支持300+学生科研实验。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" style="background: #F9FAFE;">
+        <div class="container">
+            <h2 class="section-title">新闻动态</h2>
+            <div class="grid-3">
+                <div class="news-item"><span class="news-date">2025.04.22</span><h3>金信佳业成为联想西南首批"金牌服务商"</h3><p>公司通过联想技术认证，将为客户提供原厂级售后。</p></div>
+                <div class="news-item"><span class="news-date">2025.03.10</span><h3>新品 ThinkStation P8 上市，性能再攀高峰</h3><p>支持最新AMD线程撕裂者，欢迎预约体验。</p></div>
+                <div class="news-item"><span class="news-date">2025.02.18</span><h3>成都金信佳业助力某政务云国产化替代</h3><p>完成首批联想国产服务器交付。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item"><i class="fas fa-phone-alt"></i> <div><strong>24小时咨询热线</strong><br>028-61111556 18108034533</div></div>
+                    <div class="info-item"><i class="fas fa-envelope"></i> <div><strong>电子邮箱</strong><br>89989613@qq.com</div></div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i> <div><strong>公司地址</strong><br>成都市武侯区一环路南二段1号数码科技大厦720</div></div>
+                    <div class="info-item"><i class="fas fa-clock"></i> <div><strong>服务时间</strong><br>周一至周五 9:00-18:00</div></div>
+                </div>
+                <div class="contact-form">
+                    <h3>在线留言</h3>
+                    <p>我们会第一时间与您联系</p>
+                    <form id="messageForm" action="https://formspree.io/f/xqapwzqy" method="POST">
+                        <div class="form-group"><input type="text" name="name" placeholder="您的姓名 *" required></div>
+                        <div class="form-group"><input type="tel" name="phone" placeholder="联系电话 *" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="电子邮箱"></div>
+                        <div class="form-group"><textarea name="message" placeholder="留言内容 *" required></textarea></div>
+                        <button type="submit">提交留言</button>
+                        <p style="font-size:0.7rem; margin-top:10px;">您的信息将被保密</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 成都金信佳业科技有限公司 | 联想授权合作伙伴 | 蜀ICP备XXXXXX号</p>
+    </footer>
+
+    <script>
+        // 移动端菜单
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+
+        // ========== 从 CMS 加载产品 ==========
+        // products-data 文件夹里的 JSON 文件列表
+        const productsDataUrl = 'products-data/';
+        
+        async function loadProducts() {
+            try {
+                // 获取 products-data 文件夹下的所有 json 文件
+                // 由于 GitHub Pages 不支持直接列出目录，我们需要一个索引文件
+                // 方案：使用 pages-cms 生成的索引，或者手动维护一个列表
+                // 这里先使用示例数据，等 CMS 配置好后会替换
+                
+                // 临时：等待从 CMS 获取数据
+                // 实际使用时，Pages CMS 会自动生成 products-data/products.json 索引文件
+                const response = await fetch('products-data/products.json');
+                if (!response.ok) {
+                    // 如果没有索引文件，使用备用静态数据
+                    return getFallbackProducts();
+                }
+                const products = await response.json();
+                return products;
+            } catch (error) {
+                console.log('使用备用产品数据:', error);
+                return getFallbackProducts();
+            }
+        }
+        
+        function getFallbackProducts() {
+            // 备用数据 - 等 CMS 配置好后，这些会被后台数据替代
+            return [
+                { slug: "sr650", name: "联想 ThinkSystem SR650", category: "server", price: "询价", description: "2U机架式服务器，支持28核处理器，最高3TB内存", specs: [], image: "" },
+                { slug: "p620", name: "ThinkStation P620", category: "workstation", price: "¥12,999起", description: "AMD Threadripper PRO 64核，专业图形卡", specs: [], image: "" },
+                { slug: "m950t", name: "ThinkCentre M950t", category: "pc", price: "¥4,299起", description: "商用台式机，12代i7，16G/512G", specs: [], image: "" }
+            ];
+        }
+        
+        function renderProducts(products, category = 'all') {
+            const grid = document.getElementById('products-grid');
+            if (!grid) return;
+            
+            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="loading">暂无产品，请稍后在后台添加</div>';
+                return;
+            }
+            
+            grid.innerHTML = filtered.map(product => `
+                <a href="product.html?slug=${product.slug}" class="product-card">
+                    ${product.image ? `<img src="${product.image}" alt="${product.name}">` : `<i class="fas fa-server"></i>`}
+                    <h3>${product.name}</h3>
+                    <p>${product.description || ''}</p>
+                    <div class="product-price">${product.price || '询价'}</div>
+                    <div class="btn-detail">查看详情 →</div>
+                </a>
+            `).join('');
+        }
+        
+        // 筛选功能
+        let allProducts = [];
+        loadProducts().then(products => {
+            allProducts = products;
+            renderProducts(allProducts, 'all');
+        });
+        
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        if (filterBtns.length) {
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderProducts(allProducts, btn.dataset.cat);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
