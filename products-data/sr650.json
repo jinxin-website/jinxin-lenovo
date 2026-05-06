@@ -4,5 +4,6 @@
   "category": "服务器",
   "price": "询价",
   "description": "11",
-  "specs": "11"
+  "specs": "11",
+  "featured": true
 }
