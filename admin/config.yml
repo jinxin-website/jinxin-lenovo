@@ -2,6 +2,8 @@ backend:
   name: github
   repo: jinxin-website/jinxin-lenovo
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: "images/products"
 public_folder: "/images/products"
