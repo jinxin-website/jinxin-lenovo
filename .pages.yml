@@ -31,7 +31,8 @@ content:
       - name: specs
         label: 详细规格
         type: list
-        field: { type: string }
+        field:
+          type: string
       - name: image
         label: 产品图片
         type: image
