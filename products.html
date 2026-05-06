@@ -2,94 +2,85 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>产品中心 - 成都金信佳业科技</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>全部产品 - 成都金信佳业科技</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: #f5f5f5; }
-        .header { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo h1 { color: #ED1C24; font-size: 1.3rem; }
-        .back-home { color: #333; text-decoration: none; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .page-title { font-size: 1.8rem; margin-bottom: 1.5rem; color: #333; border-left: 4px solid #ED1C24; padding-left: 1rem; }
-        .filters { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .filter-btn { padding: 0.5rem 1.5rem; border: 1px solid #ddd; background: white; border-radius: 40px; cursor: pointer; transition: 0.3s; }
+        .header { background: #ED1C24; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .header a { color: white; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .filters { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; }
+        .filter-btn { padding: 8px 25px; border: 1px solid #ddd; background: white; border-radius: 30px; cursor: pointer; transition: 0.3s; }
         .filter-btn.active, .filter-btn:hover { background: #ED1C24; color: white; border-color: #ED1C24; }
-        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .product-card { background: white; border-radius: 16px; padding: 1.2rem; text-align: center; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: 0.3s; }
-        .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-        .product-card i { font-size: 2rem; color: #ED1C24; margin-bottom: 0.8rem; }
-        .product-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-        .product-card p { font-size: 0.8rem; color: #666; }
-        .price { color: #ED1C24; font-weight: bold; margin-top: 0.5rem; font-size: 0.9rem; }
-        .loading { text-align: center; padding: 3rem; color: #666; }
-        footer { text-align: center; padding: 1.5rem; background: #1a2632; color: #999; margin-top: 2rem; }
-        @media (max-width: 1000px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 700px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 500px) { .product-grid { grid-template-columns: 1fr; } }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-decoration: none; color: #333; display: block; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .product-card h3 { margin: 10px 0; }
+        .price { color: #ED1C24; font-weight: bold; margin-top: 10px; }
+        footer { background: #222; color: #999; text-align: center; padding: 20px; margin-top: 40px; }
+        .loading { text-align: center; padding: 50px; color: #999; }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo"><h1>成都金信佳业科技</h1></div>
-        <a href="index.html" class="back-home"><i class="fas fa-home"></i> 返回首页</a>
+        <h2>成都金信佳业科技</h2>
+        <a href="index.html">🏠 返回首页</a>
     </div>
+
     <div class="container">
-        <h1 class="page-title">全部产品</h1>
         <div class="filters" id="filters">
             <button class="filter-btn active" data-cat="all">全部</button>
             <button class="filter-btn" data-cat="server">联想服务器</button>
             <button class="filter-btn" data-cat="workstation">ThinkStation工作站</button>
             <button class="filter-btn" data-cat="pc">联想品牌机</button>
         </div>
-        <div id="product-grid" class="product-grid"><div class="loading">加载产品中...</div></div>
+        <div id="productList" class="product-grid">加载中...</div>
     </div>
-    <footer><p>成都金信佳业科技有限公司 | 028-61111556</p></footer>
+
+    <footer>
+        <p>咨询热线：028-61111556 | 18108084533（微信同号）</p>
+    </footer>
 
     <script>
-        let allProducts = [];
+        let allData = [];
         let currentCat = 'all';
-
-        async function loadProducts() {
+        
+        async function loadAll() {
             try {
                 const res = await fetch('products-data/products.json');
-                if (!res.ok) throw new Error();
-                allProducts = await res.json();
-                renderProducts();
-            } catch (e) {
-                document.getElementById('product-grid').innerHTML = '<div class="loading">加载失败，请刷新重试</div>';
+                allData = await res.json();
+                render();
+            } catch(e) {
+                document.getElementById('productList').innerHTML = '<div class="loading">加载失败</div>';
             }
         }
-
-        function renderProducts() {
-            const grid = document.getElementById('product-grid');
-            const filtered = currentCat === 'all' ? allProducts : allProducts.filter(p => p.category === currentCat);
+        
+        function render() {
+            const filtered = currentCat === 'all' ? allData : allData.filter(p => p.category === currentCat);
+            const container = document.getElementById('productList');
             if (filtered.length === 0) {
-                grid.innerHTML = '<div class="loading">暂无产品，请在后台添加</div>';
+                container.innerHTML = '<div class="loading">暂无产品</div>';
                 return;
             }
-            grid.innerHTML = filtered.map(p => `
+            container.innerHTML = filtered.map(p => `
                 <a href="product.html?slug=${p.slug}" class="product-card">
-                    <i class="fas fa-server"></i>
                     <h3>${p.name}</h3>
-                    <p>${p.description?.substring(0, 50) || ''}</p>
+                    <p style="color:#666; margin:10px 0">${p.description || ''}</p>
                     <div class="price">${p.price || '询价'}</div>
                 </a>
             `).join('');
         }
-
-        // 筛选逻辑
+        
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentCat = btn.dataset.cat;
-                renderProducts();
+                render();
             });
         });
-
-        loadProducts();
+        
+        loadAll();
     </script>
 </body>
 </html>
