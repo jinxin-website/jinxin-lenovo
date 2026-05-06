@@ -1,19 +1,22 @@
 [
-{
-  "slug": "sr650",
-  "name": "联想 ThinkSystem SR650（测试）",
-  "category": "服务器",
-  "price": "询价",
-  "description": "11",
-  "specs": "11",
-  "featured": true
-},
-{
-  "slug": "ST650",
-  "name": "联想 ThinkSystem ST650（测试）",
-  "category": "工作站",
-  "price": "询价",
-  "description": "258",
-  "specs": "+66",
-  "featured": true
-}]
+  {
+    "slug": "sr650",
+    "name": "联想 ThinkSystem SR650",
+    "category": "server",
+    "price": "询价",
+    "description": "2U机架式服务器",
+    "specs": [],
+    "image": "",
+    "featured": true
+  },
+  {
+    "slug": "p620", 
+    "name": "ThinkStation P620",
+    "category": "workstation",
+    "price": "¥12,999起",
+    "description": "AMD Threadripper PRO",
+    "specs": [],
+    "image": "",
+    "featured": true
+  }
+]
