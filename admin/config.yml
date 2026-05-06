@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: jinxin-website/jinxin-lenovo
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 media_folder: "images/products"
 public_folder: "/images/products"
@@ -15,7 +12,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "产品URL标识", name: "slug", widget: "string", required: true }
+      - { label: "产品URL标识（英文）", name: "slug", widget: "string", required: true }
       - { label: "产品名称", name: "name", widget: "string", required: true }
       - { label: "产品分类", name: "category", widget: "select", options: ["server", "workstation", "pc"] }
       - { label: "参考价格", name: "price", widget: "string" }
