@@ -37,7 +37,7 @@ content:
       - name: image
         label: 产品图片
         type: image
-
-media:
-  input: images/products
-  output: /images/products
+      - name: featured
+        label: 展示在首页
+        type: boolean
+        default: false
