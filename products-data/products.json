@@ -1,10 +1,32 @@
 [
-{
-  "slug": "sr650",
-  "name": "联想 ThinkSystem SR650（测试）",
-  "category": "服务器",
-  "price": "询价",
-  "description": "11",
-  "specs": "11",
-  "featured": true
-}]
+  {
+    "slug": "sr650",
+    "name": "联想 ThinkSystem SR650",
+    "category": "server",
+    "price": "询价",
+    "description": "2U机架式服务器，支持28核处理器",
+    "specs": ["处理器：Intel Xeon", "内存：最高3TB", "存储：最多20个硬盘"],
+    "image": "",
+    "featured": true
+  },
+  {
+    "slug": "p620",
+    "name": "ThinkStation P620",
+    "category": "workstation",
+    "price": "¥12,999起",
+    "description": "AMD Threadripper PRO 64核工作站",
+    "specs": ["处理器：AMD Threadripper PRO", "内存：最高1TB", "显卡：NVIDIA RTX"],
+    "image": "",
+    "featured": true
+  },
+  {
+    "slug": "m950t",
+    "name": "ThinkCentre M950t",
+    "category": "pc",
+    "price": "¥4,299起",
+    "description": "商用台式机，12代i7",
+    "specs": ["处理器：12代 i7", "内存：16GB", "硬盘：512GB SSD"],
+    "image": "",
+    "featured": true
+  }
+]
