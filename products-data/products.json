@@ -1,52 +1,19 @@
 [
-  {
-    "slug": "sr650",
-    "name": "联想 ThinkSystem SR650",
-    "category": "server",
-    "price": "询价",
-    "description": "2U机架式服务器，支持28核处理器",
-    "specs": [],
-    "image": "",
-    "featured": true
-  },
-  {
-    "slug": "sr590",
-    "name": "联想 ThinkSystem SR590",
-    "category": "server",
-    "price": "询价",
-    "description": "2U双路服务器，中小企业优选",
-    "specs": [],
-    "image": "",
-    "featured": false
-  },
-  {
-    "slug": "p620",
-    "name": "ThinkStation P620",
-    "category": "workstation",
-    "price": "¥12,999起",
-    "description": "AMD 64核专业工作站",
-    "specs": [],
-    "image": "",
-    "featured": true
-  },
-  {
-    "slug": "p360",
-    "name": "ThinkStation P360",
-    "category": "workstation",
-    "price": "¥6,499起",
-    "description": "小型塔式工作站",
-    "specs": [],
-    "image": "",
-    "featured": false
-  },
-  {
-    "slug": "m950t",
-    "name": "ThinkCentre M950t",
-    "category": "pc",
-    "price": "¥4,299起",
-    "description": "商用台式机",
-    "specs": [],
-    "image": "",
-    "featured": true
-  }
-]
+{
+  "slug": "sr650",
+  "name": "联想 ThinkSystem SR650（测试）",
+  "category": "服务器",
+  "price": "询价",
+  "description": "11",
+  "specs": "11",
+  "featured": true
+},
+{
+  "slug": "ST650",
+  "name": "联想 ThinkSystem ST650（测试）",
+  "category": "工作站",
+  "price": "询价",
+  "description": "258",
+  "specs": "+66",
+  "featured": true
+}]
