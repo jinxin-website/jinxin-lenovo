@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: jinxin-website/jinxin-lenovo
+  branch: main
+
+media_folder: "images/products"
+public_folder: "/images/products"
+
+collections:
+  - name: "products"
+    label: "产品管理"
+    folder: "products-data"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "产品URL标识", name: "slug", widget: "string", required: true }
+      - { label: "产品名称", name: "name", widget: "string", required: true }
+      - { label: "产品分类", name: "category", widget: "select", options: ["server", "workstation", "pc"] }
+      - { label: "参考价格", name: "price", widget: "string" }
+      - { label: "简短描述", name: "description", widget: "text" }
+      - { label: "详细规格", name: "specs", widget: "list", field: { label: "规格项", name: "item", widget: "string" } }
+      - { label: "产品图片", name: "image", widget: "image", required: false }
+      - { label: "展示在首页", name: "featured", widget: "boolean", default: false }
